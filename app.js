@@ -16,7 +16,7 @@ const questions = [
     quiz: ['fast', 'quick', 'prompt'],
     options: ['charity', 'rapid'],
     correct: 2
-  }
+  },
   {
     quiz: ['apple', 'banana', 'orange'],
     options: ['burger', 'cherry'],
@@ -36,5 +36,37 @@ function populateQuestions() {
   questions.forEach(question => {
     const questionBox = document.createElement('div')
     questionBox.classList.add('question-box')
+
+    const logoDisplay = document.createElement('h1')
+    logoDisplay.textContent = "💩"
+    questionBox.append(logoDisplay)
+
+    question.quiz.forEach(tip => {
+      const tipText = document.createElement("p")
+      tipText.textContent = tip
+      questionBox.append(tipText)
+
+    })
+
+    const questionButtons = document.createElement('div')
+    questionButtons.classList.add('question-buttons')
+    questionBox.append(questionButtons)
+
+    question.options.forEach(option => {
+      const questionButton = document.createElement('button')
+      questionButton.classList.add('question-button')
+      questionButton.textContent = option
+
+      questionButtons.append(questionButton)
+    })
+
+
+
+
+
+
+    questionDisplay.append(questionBox)
   })
 }
+
+populateQuestions()
